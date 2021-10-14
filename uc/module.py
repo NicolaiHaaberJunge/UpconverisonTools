@@ -1,7 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-
 
 class UC:
     """[Det her er en UC python classe]
@@ -83,15 +81,5 @@ class UC:
 
         self.processed_spectrum = df
         return self.processed_spectrum
-
-    # def plot_spectrum(self, type='measurment'):
-
-    #     fig, ax = plt.subplots()
-
-    #     self.measurment.plot(x='wavenumber', y='intensity', ax=ax)
-    #     #fig.show()
-    #     return 
-
-
 
 

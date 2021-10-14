@@ -7,8 +7,7 @@ setup(name='UC_module',
       version='0.1',
       description='A python packge to process UC module spectra.',
       license='MIT',
-      include_package_data=True,
       packages=find_packages(),
-      install_requires=['numpy', 'pandas', 'matplotlib'],
+      #install_requires=['numpy', 'pandas'],
       #python_requires='>=3.8'
     )
