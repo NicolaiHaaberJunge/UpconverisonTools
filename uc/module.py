@@ -1,14 +1,16 @@
+#!/usr/bin/env python
+
 import pandas as pd
 import numpy as np
 
 class UC:
-    """[Det her er en UC python classe]
+    """This is a python
 
     Returns:
         [type]: [description]
     """
 
-    mixing_laser_wavelength = 1064
+    mixing_laser_wavelength = 1064  # [nm] wavelength of mixing laser.
 
     def __init__(self, dark=None, reference=None, measurment=None, header=False):
         
@@ -16,28 +18,42 @@ class UC:
         self.header = header
 
         ## SPECTRAL DATA
-        if dark:
+        if dark:  # Checks if dark spectrum is given.
             self.dark = self.read_spectrum(dark)
         else:
             self.dark = dark
 
-        if reference:    
+        if reference:  # Checks if reference spectrum is given.
             self.reference = self.read_spectrum(reference)
         else:
             self.reference = reference
 
-        if measurment:
+        if measurment:  #  Checks if measurment spectrum is given.
             self.measurment = self.read_spectrum(measurment)
         else:
             self.measurment = measurment
 
-        self.processed_spectrum = None
+        self.processed_spectrum = None  # Create the processed_spectrum attribute
         
 
     def __str__(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
+        
         return 'UC_spectrum'
     
     def read_spectrum(self, file):
+        """[summary]
+
+        Args:
+            file ([type]): [description]
+
+        Returns:
+            [type]: [description]
+        """
 
         if self.header:
             df = pd.read_csv(
@@ -65,6 +81,11 @@ class UC:
         return df
 
     def reflectance(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
 
         df = self.measurment.copy()
         df['reflectance'] = self.measurment['intensity']/self.reference['intensity']
@@ -74,6 +95,11 @@ class UC:
         return self.processed_spectrum
 
     def absorbance(self):
+        """[summary]
+
+        Returns:
+            [type]: [description]
+        """
 
         df = self.measurment.copy()
         df['absorbance'] = -1*np.log(self.measurment['intensity']/self.reference['intensity'])
