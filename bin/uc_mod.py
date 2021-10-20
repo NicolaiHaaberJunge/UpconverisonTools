@@ -44,8 +44,8 @@ def main():
         'r' : 'Reflectance'
     }
 
-    print_stmt = f'Processed {len(list_of_files)} UC spectra to IR-{type_of_spectra[args.type.lower()]} \n' \
-                 f'and saved to {args.output}.'
+    print_stmt = f'Processed {len(list_of_files)} UC spectra to IR-{type_of_spectra[args.type.lower()]}' \
+                 f' and saved to "{args.out}".'
     print(print_stmt)
 
     return

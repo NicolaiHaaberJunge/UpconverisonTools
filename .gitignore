@@ -1,6 +1,5 @@
 .ipynb_checkpoints/
-test_data/
 Untitled.ipynb
 uc/__pycache__
 UC_module.egg-info/
-bin/__pycache__
+bin/__pycache__/
