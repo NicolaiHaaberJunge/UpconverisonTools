@@ -6,10 +6,29 @@ from uc.module import UC
 
 def batch_process(dark=None, reference=None, measurments=None, output=None,
                   header=False, spec_type='A'):
+    """[summary]
+
+    Args:
+        dark ([type], optional): [description]. Defaults to None.
+        reference ([type], optional): [description]. Defaults to None.
+        measurments ([type], optional): [description]. Defaults to None.
+        output ([type], optional): [description]. Defaults to None.
+        header (bool, optional): [description]. Defaults to False.
+        spec_type (str, optional): [description]. Defaults to 'A'.
+
+    Raises:
+        ValueError: [description]
+        TypeError: [description]
+
+    Returns:
+        [type]: [description]
+    """
 
     if isinstance(output, str):
         if not '.csv' in output:
-            raise f"\"{output}\" is not a valid file name. Should end with \".csv\"." 
+            output = output + '.csv' 
+    else:
+        raise ValueError(f"Output filename must be a string!")
 
     if isinstance(spec_type, str):
         if not spec_type.lower() in ['a', 'r']:
